@@ -48,8 +48,8 @@ searchButton.addEventListener("click", function (event) {
     event.preventDefault();
     localStorage.setItem("city", city.value.toUpperCase());
     city.value.trim();
-    if (!cityList.includes(city.value.toUpperCase())) 
-    cityList.push(city.value.toUpperCase());
+    if (!cityList.includes(city.value.toUpperCase()))
+      cityList.push(city.value.toUpperCase());
     storeCities();
     renderCities();
     show.style.display = 'block'
@@ -69,29 +69,29 @@ function storeCities() {
 
 }
 
-async function getCity(locationURL){
-const response = await fetch(locationURL)
-const data = await response.json();
-var lat = data[0].lat;
-var lon = data[0].lon;
-var cityName = data[0].name;
-var today = dayjs().format('M/D/YYYY');
-var day2 = dayjs().add(1, 'day').format('M/D/YYYY');
-var day3 = dayjs().add(2, 'day').format('M/D/YYYY');
-var day4 = dayjs().add(3, 'day').format('M/D/YYYY');
-var day5 = dayjs().add(4, 'day').format('M/D/YYYY');
-var day6 = dayjs().add(5, 'day').format('M/D/YYYY');
-var weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=e07e43c9f7374f506438deb827fbe9e6" 
-$(".day1Header h5").html( `${cityName} (${today})<img src="" id="icon" alt="weather icon">`);
-day2Header.append(`(${day2})`);
-day3Header.append(`(${day3})`);
-day4Header.append(`(${day4})`);
-day5Header.append(`(${day5})`);
-day6Header.append(`(${day6})`);
+async function getCity(locationURL) {
+  const response = await fetch(locationURL)
+  const data = await response.json();
+  var lat = data[0].lat;
+  var lon = data[0].lon;
+  var cityName = data[0].name;
+  var today = dayjs().format('M/D/YYYY');
+  var day2 = dayjs().add(1, 'day').format('M/D/YYYY');
+  var day3 = dayjs().add(2, 'day').format('M/D/YYYY');
+  var day4 = dayjs().add(3, 'day').format('M/D/YYYY');
+  var day5 = dayjs().add(4, 'day').format('M/D/YYYY');
+  var day6 = dayjs().add(5, 'day').format('M/D/YYYY');
+  var weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=e07e43c9f7374f506438deb827fbe9e6"
+  $(".day1Header h5").html(`${cityName} (${today})<img src="" id="icon" alt="weather icon">`);
+  // $(".day2Header h5").html(`(${day2})<img src="" id="icon" alt="weather icon">`);
+  // $(".day3Header h5").html(`(${day3})<img src="" id="icon" alt="weather icon">`);
+  // $(".day4Header h5").html(`(${day4})<img src="" id="icon" alt="weather icon">`);
+  // $(".day5Header h5").html(`(${day5})<img src="" id="icon" alt="weather icon">`);
+  // $(".day6Header h5").html(`(${day6})<img src="" id="icon" alt="weather icon">`);
 
-getWeather(weatherURL)
+  getWeather(weatherURL)
 }
-async function getWeather(weatherURL){
+async function getWeather(weatherURL) {
   const response = await fetch(weatherURL)
   const data = await response.json();
   var temp = data.list[0].main.temp;
@@ -101,7 +101,27 @@ async function getWeather(weatherURL){
   var wind = data.list[0].wind.speed;
   var humidity = data.list[0].main.humidity
   $('#icon').attr("src", `${iconurl}`);
-  $('#weather1').append( `<p> Temp: ${temp} </p><p>Wind Speed: ${wind} </p><p>Humidity: ${humidity} </p>`);
-
-  
+  $('#weather1').html(`<p> Temp: ${temp} </p><p>Wind Speed: ${wind} </p><p>Humidity: ${humidity} </p>`);
+  for (i = 1; i < 6; i++) {
+    var temp = data.list[i].main.temp;
+    var icon = data.list[i].weather[0].icon;
+    var weather = data.list[i].weather[0].description;
+    var wind = data.list[i].wind.speed;
+    var humidity = data.list[i].main.humidity
+    var day2 = dayjs().add(i, 'day').format('M/D/YYYY');
+    var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
+    // $('#icon').attr("src", `${iconurl}`);
+    $('#weather2').html(`<div class="col-md-2" ><div class="card day2Header"><h5 class="card-header">(${day2})<img src="${iconurl}" id="icon" alt="weather icon"></h5><div class="card-body"><p> Temp: ${temp} </p><p>Wind Speed: ${wind} </p><p>Humidity: ${humidity} </p></div></div></div>`);
   }
+
+
+}
+
+
+
+
+
+{/* <div class="col-md-2" ><div class="card day2Header"><h5 class="card-header"></h5><div class="card-body weather2"><p class="card-text">Weather</p></div></div></div> */}
+
+
+// $('#weather2').html(`<p> Temp: ${temp} </p><p>Wind Speed: ${wind} </p><p>Humidity: ${humidity} </p>`);
