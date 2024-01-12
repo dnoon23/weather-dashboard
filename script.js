@@ -82,7 +82,7 @@ var day4 = dayjs().add(3, 'day').format('M/D/YYYY');
 var day5 = dayjs().add(4, 'day').format('M/D/YYYY');
 var day6 = dayjs().add(5, 'day').format('M/D/YYYY');
 var weatherURL = "http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=e07e43c9f7374f506438deb827fbe9e6" 
-$(".day1Header h5").html( `${cityName} (${today})<img src="" id="icon">`);
+$(".day1Header h5").html( `${cityName} (${today})<img src="" id="icon" alt="weather icon">`);
 day2Header.append(`(${day2})`);
 day3Header.append(`(${day3})`);
 day4Header.append(`(${day4})`);
