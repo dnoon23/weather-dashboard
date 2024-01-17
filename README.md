@@ -2,7 +2,7 @@
 
 ## Description
 
-https://dnoon23.github.io//
+https://dnoon23.github.io/weather-dashboard/
 <p>
 This project was to create a web page that allowed the user to search a city and get a 6 day forecast.  Today's forecast is displayed at the top of the page and the following 5 days forecasts are displayed smaller below it.  After a city is searched a button is created that allows the user to look up the forecast for that city again.  The most difficult parts of this project was properly displaying the forecast for the following 5 days and getting the buttons created by search the search history to properly seach for the cities they represented.
 <p>
