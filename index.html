@@ -10,16 +10,16 @@
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-
   <title>Weather Dashboard</title>
 </head>
 
 <body>
-  <div class="container-fluid overflow-hidden ">
+  <div class="container-fluid overflow-hidden">
     <div class="row">
       <div class="col-md-12">
         <h1 class="text-center">Weather Dashboard</h1>
         <div class="row">
+          <!-- Search input area -->
           <div class="col-md-3">
             <h3 class="text-">Search for a City:</h3>
             <form role="form">
@@ -33,59 +33,22 @@
             <p>
               <hr />
             </p>
+            <!-- Area for search history buttons -->
             <div class="d-grid gap-2" id=city-history></div>
           </div>
-          <div id="display" class="col-md-8" style="display: none">
-            <div class="card day1Header">  
+          <!-- Forecast area -->
+          <div id="display" class="col-md-9" style="display: none">
+            <!-- Area for todays forecast -->
+            <div class="card day1Header">
               <h5 class="card-header "></h5>
               <div class="card-body" id="weather1">
               </div>
             </div>
+            <!-- Area for the 5 day forecast -->
             <h3>5-Day Forecast:</h3>
             <div class="row g-1 d-flex justify-content-space-evenly">
               <div class="col-md-12 ">
-                <div class="row" id = "weather2">
-                  <!-- <div class="col-md-2" >
-                    <div class="card day2Header">
-                      <h5 class="card-header">
-                      </h5>
-                      <div class="card-body weather2">
-                        <p class="card-text">Weather</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card day3Header">
-                      <h5 class="card-header"></h5>
-                      <div class="card-body">
-                        <p class="card-text">Weather</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card day4Header">
-                      <h5 class="card-header"></h5>
-                      <div class="card-body">
-                        <p class="card-text">Weather</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card day5Header">
-                      <h5 class="card-header"></h5>
-                      <div class="card-body">
-                        <p class="card-text">Weather</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="card day6Header">
-                      <h5 class="card-header"></h5>
-                      <div class="card-body">
-                        <p class="card-text">Weather</p>
-                      </div>
-                    </div>
-                  </div> -->
+                <div class="row" id="weather2">
                 </div>
               </div>
             </div>
