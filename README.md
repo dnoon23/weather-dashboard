@@ -24,4 +24,4 @@ https://openweathermap.org/
 
 ## Features
 
-
+Accesses APIs to get information and writes information to the page.  Uses local storage to help create buttons and creates a search history.
