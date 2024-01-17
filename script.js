@@ -109,7 +109,7 @@ async function getWeather(weatherURL) {
       var humidity = data.list[k].main.humidity
       var day2 = dayjs().add(k / 7, 'day').format('M/D/YYYY');
       var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
-      $('#weather2').append(`<div class="col-lg-2 mx-auto" ><div class="card day2Header"><h5 class="card-header">(${day2})<img src="${iconurl}" id="icon" alt="weather icon"></h5><div class="card-body"><p> Temp: ${Math.round(((temp - 273.15) * 1.8 + 32) * 100) / 100}°F</p><p>Wind Speed: ${wind} mph</p><p>Humidity: ${humidity}% </p></div></div></div>`);
+      $('#weather2').append(`<div class="col-lg-2 mx-auto" ><div class="card day2Header"><h5 class="card-header bg-primary text-white">(${day2})<img src="${iconurl}" id="icon" alt="weather icon"></h5><div class="card-body"><p> Temp: ${Math.round(((temp - 273.15) * 1.8 + 32) * 100) / 100}°F</p><p>Wind Speed: ${wind} mph</p><p>Humidity: ${humidity}% </p></div></div></div>`);
     }
   }
 
